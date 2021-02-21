@@ -135,7 +135,8 @@ function saveLocalTodos(todo) {
   todos.push(todo);
   localStorage.setItem('todos', JSON.stringify(todos));
 
-  let todos2= new entries;
+  let todos2 = new entries;
+  let pomocni = new entries;
 
   //entries je klasa
 
@@ -145,13 +146,21 @@ function saveLocalTodos(todo) {
     todos2.name = JSON.parse(localStorage.getItem('todos2.name'));
     todos2.done = JSON.parse(localStorage.getItem('todos2.done'));
   }
-  todos2.name.push(todo);
+  //todos2.name.push(todo);
+  pomocni.name = todo;
   if (todo.classList == "completed") {
-    todos2.done.push(1);
+    //todos2.done.push(1);
+    pomocni.done = 1;
   } else {
-    todos2.done.push(0);
+    //todos2.done.push(0);
+    pomocni.done = 0;
   }
-  localStorage.setItem('todos2', JSON.stringify(todos2.name));
+
+  console.log(pomocni.name);
+  console.log(pomocni.done);
+
+  todos2.push(pomocni);
+  localStorage.setItem('todos2', JSON.stringify(todos2.name), JSON.stringify(todos2.done));
 
 
 }
