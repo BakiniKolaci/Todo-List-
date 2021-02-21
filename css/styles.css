@@ -279,6 +279,9 @@ select{
 
   
 }
+.filter-todo {
+  z-index: 1;
+}
 
 @media screen and (max-width:1150px){
   .navLinks{
@@ -292,6 +295,7 @@ select{
     z-index: 999;
   }
   .navLinks{
+    z-index: 2;
     position: absolute;
     right: 0px;
     height: 97vh;
