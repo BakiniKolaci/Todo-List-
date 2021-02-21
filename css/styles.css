@@ -71,8 +71,26 @@ form{
   align-items: center;
 }
 
+form{
+  text-align: justify;
+  text-align-last: center;
+}
+
+#todoInput{
+  width: 35%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: none;
+}
+
+form button{
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
 form input, form button{
 
+  
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
@@ -90,13 +108,12 @@ form button{
 form button:hover{
   background: rgb(105, 141, 89);
   color: white;
-
 }
 
 .todo-container{
   display: flex;
   justify-content: center;
-  align-items: ceter;
+  align-items: center;
 }
 
 .todolist{
@@ -155,7 +172,7 @@ form button:hover{
   opacity: 0;
 }
 
-select{
+/* select{
   -webkit-appearance: none;
   -moz-appearence: none;
   appearance: none;
@@ -164,6 +181,7 @@ select{
 }
 
 .select{
+
   margin: 1rem;
   position: relative;
   overflow: hidden;
@@ -174,7 +192,7 @@ select{
   background-color: white;
   width: 10rem;
   cursor: pointer;
-  padding: 1.1rem;
+  padding: 1rem;
   position: relative;
 }
 
@@ -193,9 +211,73 @@ select{
   background:rgb(105, 141, 89);
   color: #00d2f7;
 }
+ */
 
-#todoInput{
-  width: 35%;
+ select{
+  font-size: 1rem;
+  padding: 1em 2em 1em 1.5em;
+  border-radius: 5px;
+  border: 0;
+  margin: 0 10px;
+  background-color: white;
+  color:rgb(116, 11, 89); 
+  cursor: pointer;
+  outline: none;
+
+ }
+
+ .custom-arrow:hover{
+  background: rgb(72, 201, 17);
+  color: white;
+}
+
+.select{
+  position: relative;
+  outline: none;
+  
+}
+ .custom-arrow{
+   position: absolute;
+   top:0;
+   right: 0;
+   display: block;  
+   background: #5cbd79;
+   height: 100%;
+   width: 20%;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   pointer-events: none;
+
+ }
+
+ .custom-arrow::before,
+.custom-arrow::after{
+
+  --size: 0.5em;
+  content:"";
+  position:  absolute;
+  width: 0;
+  height: 0;
+  
+  left: 30%;
+  top: 50%
+}
+
+.custom-arrow::before{
+  border-left:  var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid rgb(255, 255, 255);
+
+  top:30%;
+}
+
+.custom-arrow::after{
+  border-left:  var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid rgb(255, 255, 255);
+  transition: all 0.3s ease;
+
+  
 }
 
 @media screen and (max-width:1150px){
@@ -207,11 +289,12 @@ select{
 @media screen and (max-width:640px){
   body{
     overflow-x: hidden;
+    z-index: 999;
   }
   .navLinks{
     position: absolute;
     right: 0px;
-    height: 92vh;
+    height: 97vh;
     top: 8vh;
     background-color:rgb(230, 159, 112);
     display: flex;
@@ -229,7 +312,9 @@ select{
 
 .nav-active{
   transform: translateX(0%);
+  size:fixed;
   z-index: 999px;
+  transition: height 1s ease;
 }
 
 @keyframes navLinkFade{
