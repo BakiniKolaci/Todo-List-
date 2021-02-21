@@ -135,7 +135,7 @@ function saveLocalTodos(todo) {
   todos.push(todo);
   localStorage.setItem('todos', JSON.stringify(todos));
 
-  let todos2 = new entries;
+  let todos2 = [];
   let pomocni = new entries;
 
 
