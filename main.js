@@ -138,6 +138,7 @@ function saveLocalTodos(todo) {
   let todos2 = new entries;
   let pomocni = new entries;
 
+
   //entries je klasa
 
   if (localStorage.getItem('todos2') === null) {
