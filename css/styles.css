@@ -1,16 +1,23 @@
-*{
-  margin:0;
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  background-image: linear-gradient(to left, rgb(66, 144, 187), rgb(80, 175, 37));
+
+
+body {
+  background-image: linear-gradient(
+    to left,
+    rgb(66, 144, 187),
+    rgb(80, 175, 37)
+  );
   color: white;
   font-family: "Poppins", sans-serif;
 }
 
-nav{
+nav {
+  z-index: 4;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -18,7 +25,7 @@ nav{
   background-color: bisque;
 }
 
-.logo{
+.logo {
   color: rgb(116, 11, 89);
   text-decoration: violet;
   text-transform: uppercase;
@@ -26,17 +33,17 @@ nav{
   font-size: 30px;
 }
 
-.navLinks{
-  display:flex;
+.navLinks {
+  display: flex;
   justify-content: space-around;
   width: 56%;
 }
 
-.navLinks li{
+.navLinks li {
   list-style: none;
 }
 
-.navLinks a{
+.navLinks a {
   color: rgb(116, 11, 89);
   text-decoration: violet;
   letter-spacing: 3px;
@@ -44,85 +51,82 @@ nav{
   font-size: 14px;
 }
 
-.burger{
+.burger {
   display: none;
   cursor: pointer;
 }
 
-.burger div{
+.burger div {
   width: 25px;
   height: 3px;
   background-color: rgb(116, 11, 89);
   margin: 5px;
 }
 
-header{
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+header {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-weight: 800;
-  font-optical-sizing:initial;
-  font-size:2rem;
+  font-optical-sizing: initial;
+  font-size: 2rem;
 }
 
 header,
-form{
+form {
   min-height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-form{
+form {
   text-align: justify;
   text-align-last: center;
 }
 
-#todoInput{
+#todoInput {
   width: 35%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   outline: none;
 }
 
-form button{
+form button {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-form input, form button{
-
-  
+form input,
+form button {
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
   background: white;
 }
 
-form button{
-  
-  background:  rgb(97, 189, 120);
+form button {
+  background: rgb(97, 189, 120);
   color: bisque;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-form button:hover{
+form button:hover {
   background: rgb(105, 141, 89);
   color: white;
 }
 
-.todo-container{
+.todo-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.todolist{
+.todolist {
   min-width: 30%;
   list-style: none;
 }
 
-.todo{
-
+.todo {
   margin: 0.5rem;
   background: white;
   color: black;
@@ -133,15 +137,16 @@ form button:hover{
   transition: all 1s ease;
 }
 
-.to-do-item{
+.to-do-item {
   width: 55%;
 }
 
-.todo li{
+.todo li {
   flex: 1;
 }
 
-.trash-btn, .complete-btn{
+.trash-btn,
+.complete-btn {
   background: #32d488;
   color: white;
   border: none;
@@ -150,182 +155,136 @@ form button:hover{
   font-size: 1rem;
 }
 
-.complete-btn{
+.complete-btn {
   background-color: #00d2f7;
 }
 
-.to-do-item{
+.to-do-item {
   padding: 0rem 0.5rem;
 }
 
-.fa-trash, .fa-check{
+.fa-trash,
+.fa-check {
   pointer-events: none;
 }
 
-.completed{
+.completed {
   text-decoration: line-through;
   opacity: 0.5;
 }
 
-.fall{
+.fall {
   transform: translateY(8rem) rotateZ(30deg);
   opacity: 0;
 }
 
-/* select{
-  -webkit-appearance: none;
-  -moz-appearence: none;
-  appearance: none;
-  outline: none;
-  border: none;
-}
-
-.select{
-
-  margin: 1rem;
-  position: relative;
-  overflow: hidden;
-}
-
-select{
-  color: rgb(33, 121, 87);
-  background-color: white;
-  width: 10rem;
-  cursor: pointer;
-  padding: 1rem;
-  position: relative;
-}
-
-.select::after{
-  content: "\25BC";
-  position: absolute;
-  background-color: #32d488;
-  top: 0;
-  right: 0;
-  padding: 1rem;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.select:hover::after{
-  background:rgb(105, 141, 89);
-  color: #00d2f7;
-}
- */
-
- select{
+select {
   font-size: 1rem;
   padding: 1em 2em 1em 1.5em;
   border-radius: 5px;
   border: 0;
   margin: 0 10px;
   background-color: white;
-  color:rgb(116, 11, 89); 
+  color: rgb(116, 11, 89);
   cursor: pointer;
   outline: none;
+}
 
- }
-
- .custom-arrow:hover{
+.custom-arrow:hover {
   background: rgb(72, 201, 17);
   color: white;
 }
 
-.select{
+.select {
   position: relative;
   outline: none;
-  
 }
- .custom-arrow{
-   position: absolute;
-   top:0;
-   right: 0;
-   display: block;  
-   background: #5cbd79;
-   height: 100%;
-   width: 20%;
-   border-top-right-radius: 5px;
-   border-bottom-right-radius: 5px;
-   pointer-events: none;
+.custom-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background: #5cbd79;
+  height: 100%;
+  width: 20%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  pointer-events: none;
+}
 
- }
-
- .custom-arrow::before,
-.custom-arrow::after{
-
+.custom-arrow::before,
+.custom-arrow::after {
   --size: 0.5em;
-  content:"";
-  position:  absolute;
+  content: "";
+  position: absolute;
   width: 0;
   height: 0;
-  
+
   left: 30%;
-  top: 50%
+  top: 50%;
 }
 
-.custom-arrow::before{
-  border-left:  var(--size) solid transparent;
+.custom-arrow::before {
+  border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-bottom: var(--size) solid rgb(255, 255, 255);
 
-  top:30%;
+  top: 30%;
 }
 
-.custom-arrow::after{
-  border-left:  var(--size) solid transparent;
+.custom-arrow::after {
+  border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-top: var(--size) solid rgb(255, 255, 255);
-  transition: all 0.3s ease;
-
-  
+  transition: all 0.3s ease-in;
 }
 .filter-todo {
   z-index: 1;
 }
 
-@media screen and (max-width:1150px){
-  .navLinks{
+@media screen and (max-width: 1150px) {
+  .navLinks {
     width: 55%;
   }
 }
 
-@media screen and (max-width:640px){
-  body{
+@media screen and (max-width: 640px) {
+  body {
     overflow-x: hidden;
     z-index: 999;
   }
-  .navLinks{
+  .navLinks {
     z-index: 2;
     position: absolute;
     right: 0px;
     height: 97vh;
     top: 8vh;
-    background-color:rgb(230, 159, 112);
+    background-color: rgb(230, 159, 112);
     display: flex;
     flex-direction: column;
     align-items: center;
     transform: translateX(100%);
   }
-  .navLinks li{
+  .navLinks li {
     opacity: 0;
   }
-  .burger{
+  .burger {
     display: block;
   }
 }
 
-.nav-active{
+.nav-active {
   transform: translateX(0%);
-  size:fixed;
-  z-index: 999px;
-  transition: height 1s ease;
+  z-index: 3;
+  transition: transform 0.75s ease-in;
 }
 
-@keyframes navLinkFade{
-  from{
+@keyframes navLinkFade {
+  from {
     opacity: 0;
     transform: translateX(40px);
-  }to{
+  }
+  to {
     opacity: 1;
     transform: translateX(0px);
   }
