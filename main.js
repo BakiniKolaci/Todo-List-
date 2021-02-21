@@ -4,6 +4,9 @@ const fieldInput = document.querySelector('.to-do-input');
 const todoButton = document.querySelector('.to-do-button');
 const todoList = document.querySelector('.todolist');
 const filterOption = document.querySelector('.filter-todo');
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.navLinks');
+const navLinks = document.querySelectorAll('.navLinks li');
 
 
 //event listeners
@@ -11,6 +14,7 @@ const filterOption = document.querySelector('.filter-todo');
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterTodo);
+
 
 
 //functions
@@ -21,7 +25,6 @@ function addTodo(event) {
   
   var x = document.forms["todoForm"]["name"].value;
   if (x == "") {
-    alert("Unesite aktivnost");
     return false;
   }
 
@@ -92,5 +95,18 @@ function filterTodo(e) {
     }
   });
 }
+
+
+const navSlide = () => {
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+  });
+
+  navLinks.forEach((link, index) => {
+    link.style.animation = `navLinkFade 0.5 ease forwards ${index / 5 + 2}s`;
+  });
+}
+
+navSlide();
 
 

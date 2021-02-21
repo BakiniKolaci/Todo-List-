@@ -46,6 +46,7 @@ nav{
 
 .burger{
   display: none;
+  cursor: pointer;
 }
 
 .burger div{
@@ -71,6 +72,7 @@ form{
 }
 
 form input, form button{
+
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
@@ -112,6 +114,10 @@ form button:hover{
   justify-content: space-between;
   align-items: center;
   transition: all 1s ease;
+}
+
+.to-do-item{
+  width: 55%;
 }
 
 .todo li{
@@ -164,10 +170,12 @@ select{
 }
 
 select{
-  color: #32d488;
+  color: rgb(33, 121, 87);
+  background-color: white;
   width: 10rem;
   cursor: pointer;
   padding: 1.1rem;
+  position: relative;
 }
 
 .select::after{
@@ -182,8 +190,12 @@ select{
 }
 
 .select:hover::after{
-  background: white;
+  background:rgb(105, 141, 89);
   color: #00d2f7;
+}
+
+#todoInput{
+  width: 35%;
 }
 
 @media screen and (max-width:1150px){
@@ -212,5 +224,20 @@ select{
   }
   .burger{
     display: block;
+  }
+}
+
+.nav-active{
+  transform: translateX(0%);
+  z-index: 999px;
+}
+
+@keyframes navLinkFade{
+  from{
+    opacity: 0;
+    transform: translateX(40px);
+  }to{
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
