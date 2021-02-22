@@ -6,6 +6,8 @@ class entries {
   }
 }
 
+ let pomocni = new entries;
+
 
 //selectors
 
@@ -132,38 +134,16 @@ function saveLocalTodos(todo) {
   } else {
     todos = JSON.parse(localStorage.getItem('todos'));
   }
-  todos.push(todo);
-  localStorage.setItem('todos', JSON.stringify(todos));
 
-  let todos2 = [];
-  let pomocni = new entries;
-
-
-  //entries je klasa
-
-  if (localStorage.getItem('todos2') === null) {
-    todos2= [];
-  } else {
-    todos2.name = JSON.parse(localStorage.getItem('todos2.name'));
-    todos2.done = JSON.parse(localStorage.getItem('todos2.done'));
-  }
-  //todos2.name.push(todo);
   pomocni.name = todo;
   if (todo.classList == "completed") {
-    //todos2.done.push(1);
     pomocni.done = 1;
   } else {
-    //todos2.done.push(0);
     pomocni.done = 0;
   }
 
-  console.log(pomocni.name);
-  console.log(pomocni.done);
-
-  todos2.push(pomocni);
-  localStorage.setItem('todos2', JSON.stringify(todos2.name), JSON.stringify(todos2.done));
-
-
+  todos.push(pomocni);
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function getTodosFromLocalStorage() {
@@ -182,7 +162,7 @@ function getTodosFromLocalStorage() {
   todoDiv.classList.add("todo");
   //create li
   const newTodo = document.createElement('li');
-  newTodo.innerText = todo;
+  newTodo.innerText = todo.name;
   newTodo.classList.add("to-do-item");
   todoDiv.appendChild(newTodo);
   //checked
@@ -209,10 +189,16 @@ function removeTodosFromLocalStorage(todo) {
   } else {
     todos = JSON.parse(localStorage.getItem('todos'));
   }
-  const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex),1);
 
-  localStorage.setItem("todos", JSON.stringify(todos));  
+  console.log(todo.children[0].innerText);
+
+  var todoIndex = todos.findIndex(i => i.name === todo.children[0].innerText);
+
+  console.log(todoIndex);
+
+  todos.splice(todoIndex, 1);
+
+  localStorage.setItem("todos", JSON.stringify(todos));
 
 }
 
