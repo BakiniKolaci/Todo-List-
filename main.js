@@ -81,6 +81,7 @@ function deleteCheck(e){
   //check mark
   if(item.classList[0] === "complete-btn"){
     const todo = item.parentElement;
+    updateMarkedValue(todo);
     todo.classList.toggle("completed");  
   }
 }
@@ -137,9 +138,9 @@ function saveLocalTodos(todo) {
 
   pomocni.name = todo;
   if (todo.classList == "completed") {
-    pomocni.done = 1;
+    pomocni.done = -1;
   } else {
-    pomocni.done = 0;
+    pomocni.done = -1;
   }
 
   todos.push(pomocni);
@@ -158,25 +159,31 @@ function getTodosFromLocalStorage() {
 
   todos.forEach(function (todo){
     //TOdodiv
-  const todoDiv = document.createElement('div');
-  todoDiv.classList.add("todo");
-  //create li
-  const newTodo = document.createElement('li');
-  newTodo.innerText = todo.name;
-  newTodo.classList.add("to-do-item");
-  todoDiv.appendChild(newTodo);
-  //checked
-  const completedButton = document.createElement('button');
-  completedButton.innerHTML = '<i class="fas fa-check"></i>'
-  completedButton.classList.add("complete-btn");
-  todoDiv.appendChild(completedButton);
-  //trash btn
-  const trashButton = document.createElement('button');
-  trashButton.innerHTML = '<i class="fas fa-trash"></i>'
-  trashButton.classList.add("trash-btn");
-  todoDiv.appendChild(trashButton);
-  //append to list
-  todoList.appendChild(todoDiv);
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add("todo");
+    //create li
+    const newTodo = document.createElement('li');
+    newTodo.innerText = todo.name;
+    newTodo.classList.add("to-do-item");
+    todoDiv.appendChild(newTodo);
+    //checked
+    const completedButton = document.createElement('button');
+    completedButton.innerHTML = '<i class="fas fa-check"></i>'
+    completedButton.classList.add("complete-btn");
+    todoDiv.appendChild(completedButton);
+    //trash btn
+    const trashButton = document.createElement('button');
+    trashButton.innerHTML = '<i class="fas fa-trash"></i>'
+    trashButton.classList.add("trash-btn");
+    todoDiv.appendChild(trashButton);
+    
+    //append to list
+    todoList.appendChild(todoDiv);
+
+    //is it marked as done or not
+    if (todo.done == 1) {
+      console.log(todoDiv.classList.toggle("completed"));
+    }
   })
 }
 
@@ -200,5 +207,23 @@ function removeTodosFromLocalStorage(todo) {
 
   localStorage.setItem("todos", JSON.stringify(todos));
 
+}
+
+function updateMarkedValue(todo) {
+  let todos;
+  
+  if (localStorage.getItem('todos') === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem('todos'));
+  }
+
+  console.log(todo.children[0].innerText);
+
+  var todoIndex = todos.findIndex(i => i.name === todo.children[0].innerText);
+
+  todos[todoIndex].done *= -1;
+
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
 
