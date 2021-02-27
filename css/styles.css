@@ -251,7 +251,6 @@ select {
 @media screen and (max-width: 640px) {
   body {
     overflow-x: hidden;
-    z-index: 999;
   }
   .navLinks {
     z-index: 2;
@@ -276,7 +275,7 @@ select {
 .nav-active {
   transform: translateX(0%);
   z-index: 3;
-  transition: transform 0.75s ease-in;
+  transition: transform 0.35s ease-in;
 }
 
 @keyframes navLinkFade {
