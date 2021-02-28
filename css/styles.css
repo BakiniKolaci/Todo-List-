@@ -68,11 +68,12 @@ header {
   font-weight: 800;
   font-optical-sizing: initial;
   font-size: 2rem;
+  height: 1;
 }
 
 header,
 form {
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
